@@ -29,7 +29,8 @@ jobs:
   artefact:
     runs-on: ubuntu-20.04
     steps:
-      - run: echo «hello» > hello.txt 
+      - name: Run
+	run: echo «hello» > hello.txt 
       - name: upload
         uses: actions/upload-artifact@v4
   	with:
