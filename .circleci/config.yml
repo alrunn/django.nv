@@ -26,6 +26,7 @@ jobs:
           command: |
             echo "This is an integration step"
             exit 1
+	  when: always
 
   prod:
     docker:
@@ -33,6 +34,13 @@ jobs:
     steps:
       - checkout
       - run: echo "This is a deploy step"
+  artifact:
+    docker: 
+      - image: python:3.6
+    steps:
+      - run: 
+	command: echo "hello" > hello.txt
+	when: always
 
 workflows:
   version: 2
